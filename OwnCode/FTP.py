@@ -2,6 +2,8 @@
 #dir
 #put filename
 
+filename = input('Enter filename:\n')
+
 def getdir():
     import ftplib
     connect = ftplib.FTP('ftp.url.com')
