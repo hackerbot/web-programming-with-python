@@ -1,17 +1,18 @@
 def reademail():
     import os
-    os.system('cls' if os.name == 'nt' else 'clear')
     import imaplib
+    os.system('cls' if os.name == 'nt' else 'clear')
     mailserver = imaplib.IMAP4_SSL('imap.gmail.com', 993)
-    username = input('Enter your username:\n')
-    password = input('Enter your password:\n')
+    username = input('Enter your username: ')
+    password = input('Enter your password: ')
     mailserver.login(username,password)
     status, count = mailserver.select('Inbox')
     status, data = mailserver.fetch(count[0], '(UID BODY[Text])')
-    print(data[0][1])
+    for line in str(data[0][1]):
+        print(line, end='')
     mailserver.close()
     mailserver.logout()
-    choice = input('Press x to clear screen:\n')
+    choice = input('Press x to clear screen: ')
     if choice == 'x':
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -20,16 +21,16 @@ def sendemail():
     import smtplib
     from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
-    fromaddr = input('Enter your email address:\n')
-    toaddr = input('Enter the receiver\'s email address:\n')
-    subject = input('Enter the subject:\n')
-    text = input('Enter the message:\n')
-    input('Is your username same as your email?\n')
+    fromaddr = input('Enter your email address: ')
+    toaddr = input('Enter the receiver\'s email address: ')
+    subject = input('Enter the subject: ')
+    text = input('Enter the message: ')
+    input('Is your username same as your email? ')
     if str(input) == 'Y' or 'YES' or 'yes' or 'y' or '1':
         username = fromaddr
     else:
-        username = input('Enter your username:\n')
-    password = input('Enter your password:\n')
+        username = input('Enter your username: ')
+    password = input('Enter your password: ')
     msg = MIMEMultipart()
     msg['From'] = fromaddr
     msg['To'] = toaddr
@@ -41,7 +42,7 @@ def sendemail():
     server.login(username,password)
     server.sendmail(fromaddr, toaddr, msg.as_string())
     server.quit()
-    choice = input('Email sent. Press x to clear the screen:\n')
+    choice = input('Email sent. Press x to clear the screen: ')
     if choice == 'x':
         os.system('cls' if os.name == 'nt' else 'clear')
 
