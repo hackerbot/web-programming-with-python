@@ -2,12 +2,15 @@
 #dir
 #put filename
 
-filename = input('Enter filename:\n')
+filename = input('Enter filename: ')
 
 def getdir():
     import ftplib
-    connect = ftplib.FTP('ftp.url.com')
-    connect.login('administrator\admin', 'password')
+    url = 'ftp://'+input('Enter FTP url: ')
+    connect = ftplib.FTP(url)
+    username = input('Enter username: ')
+    password = input('Enter password: ')
+    connect.login(username, password)
     data = []
     connect.dir(data.append)
     connect.quit()
@@ -18,16 +21,22 @@ def getfile():
     import ftplib
     import sys
     filename = sys.argv[1]
-    connect = ftplib.FTP('ftp.url.com')
-    connect.login('administrator\admin', 'password')
+    url = 'ftp://'+input('Enter FTP url: ')
+    connect = ftplib.FTP(url)
+    username = input('Enter username: ')
+    password = input('Enter password: ')
+    connect.login(username, password)
     connect.retrlines('RETR ' + filename)
     connect.quit()
 
 def putfile():
     import ftplib
     import sys
-    connect = ftplib.FTP('ftp.url.com')
-    connect.login('administrator\admin', 'password')
+    url = 'ftp://'+input('Enter FTP url: ')
+    connect = ftplib.FTP(url)
+    username = input('Enter username: ')
+    password = input('Enter password: ')
+    connect.login(username, password)
     file = open(filename, 'rb')
     connect.storebinary('STOR ' + filename, file)
     connect.quit()    

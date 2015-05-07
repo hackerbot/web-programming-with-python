@@ -1,7 +1,5 @@
 def reademail():
-    import os
     import imaplib
-    os.system('cls' if os.name == 'nt' else 'clear')
     mailserver = imaplib.IMAP4_SSL('imap.gmail.com', 993)
     username = input('Enter your username: ')
     password = input('Enter your password: ')
@@ -14,10 +12,9 @@ def reademail():
     mailserver.logout()
     choice = input('Press x to clear screen: ')
     if choice == 'x':
-        os.system('cls' if os.name == 'nt' else 'clear')
+       clear
 
 def sendemail():
-    import os
     import smtplib
     from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
@@ -26,10 +23,10 @@ def sendemail():
     subject = input('Enter the subject: ')
     text = input('Enter the message: ')
     input('Is your username same as your email? ')
-    if str(input) == 'Y' or 'YES' or 'yes' or 'y' or '1':
-        username = fromaddr
-    else:
+    while str(input) != 'Y' or 'YES' or 'yes' or 'y' or '1':
         username = input('Enter your username: ')
+    else:
+        username = fromaddr
     password = input('Enter your password: ')
     msg = MIMEMultipart()
     msg['From'] = fromaddr
@@ -44,11 +41,9 @@ def sendemail():
     server.quit()
     choice = input('Email sent. Press x to clear the screen: ')
     if choice == 'x':
-        os.system('cls' if os.name == 'nt' else 'clear')
+        clear
 
 while 1:
-    import os
-    os.system('cls' if os.name == 'nt' else 'clear')
     print('Email Program\n')
     print('1. Read email')
     print('2. Send email')

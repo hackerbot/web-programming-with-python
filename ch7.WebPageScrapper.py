@@ -17,7 +17,7 @@ def urlcontent():
 #     except urllib.error.HTTPError as e:
 #         print('''An error occured: {}
 #     The response code was ()'''.format(e, e.getcode()))                   
-    print('HEADER INFO:\n')
+    print('\n\nHeader:\n\n')
     headerinfo = response.info()
     print(headerinfo)
 
