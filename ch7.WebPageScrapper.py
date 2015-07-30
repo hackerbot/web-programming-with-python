@@ -7,16 +7,16 @@ def urlcontent():
     print(html)
     content = response.readlines()
     print(content)
-#    contents[0]
-#     try:
-#         if response.getcode() == 200:
-#             print('Bingo!')
-#         else:
-#             print('The response code was not 200, but: {}'.format(
-#                     response.getcode()))
-#     except urllib.error.HTTPError as e:
-#         print('''An error occured: {}
-#     The response code was ()'''.format(e, e.getcode()))                   
+#     contents[0]
+#      try:
+#          if response.getcode() == 200:
+#              print('Bingo!')
+#          else:
+#              print('The response code was not 200, but: {}'.format(
+#                      response.getcode()))
+#      except urllib.error.HTTPError as e:
+#          print('''An error occured: {}
+#      The response code was ()'''.format(e, e.getcode()))                   
     print('\n\nHeader:\n\n')
     headerinfo = response.info()
     print(headerinfo)
@@ -53,5 +53,5 @@ def urlparser2():
 
 urlcontent()
 urlretrieve()
-urlparser() #bug in Python 3.5, works in P2.7
-urlparser2() #bug in Python 3.5, works in P2.7
+urlparser() # bug in Python 3.5, works in P2.7
+urlparser2() # bug in Python 3.5, works in P2.7

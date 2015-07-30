@@ -1,6 +1,6 @@
-#ftp 'ftp.url.com'
-#dir
-#put filename
+# ftp 'ftp.url.com'
+# dir
+# put filename
 
 filename = input('Enter filename: ')
 

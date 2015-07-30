@@ -1,8 +1,8 @@
 from nntplib import *
 
 def readnews():
-    url = 'nttp://'+input('Enter Newsgroup url: ') #e.g. web.aioe.org
-    s = NNTP(url) #www.elfqrin.com/hacklab/pages/nntpserv.php
+    url = 'nttp://'+input('Enter Newsgroup url: ') # e.g. web.aioe.org
+    s = NNTP(url) # www.elfqrin.com/hacklab/pages/nntpserv.php
     (resp, count, first, last, name) = s.group('comp.lang.python')
     (resp, subs) = s.xhdr('subject', (str(first)+'-'+str(last)))
     for subject in subs[-10:]:
